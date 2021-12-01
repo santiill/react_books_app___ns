@@ -8,33 +8,6 @@ export const BookItem = ({ author, title, id }) => {
     console.log("editing task again with alert");
   }; */
 
-  /* const column = [
-    {
-      title: "Author",
-      dataIndex: "author",
-      key: "author",
-    },
-    {
-      title: "Title",
-      dataIndex: "title",
-      key: "title",
-    },
-    {
-      title: "Delete",
-      dataIndex: "delete",
-      render: () => <button>Delete</button>,
-    },
-    {
-      title: "Edit",
-      dataIndex: "edit",
-      render: () => (
-        <Link to="/update-book">
-          <h1>edit</h1>
-        </Link>
-      ),
-    },
-  ]; */
-
   const removeBook = (id) => {
     if (window.confirm("Are u sure?")) {
       fetch(`http://localhost:4000/books/${id}`, {
