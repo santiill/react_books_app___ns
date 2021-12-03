@@ -9,12 +9,8 @@ export const UpdateBook = ({id}) => {
                 title: userState.title,
                 author: userState.author
             })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+            .then(response => console.log(response))
+            .catch(error => console.log(error))
         }
 
     const [userState, setUserState] = useState({
