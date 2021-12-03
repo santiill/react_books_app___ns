@@ -8,31 +8,7 @@ import { UpdateBook } from "../UpdateBook/UpdateBook";
 import { Link } from "react-router-dom";
 
 export const BookList = () => {
-
-    /* const column = [
-        {
-          title: "Author",
-          dataIndex: "author",
-          key: "author",
-        },
-        {
-          title: "Title",
-          dataIndex: "title",
-          key: "title",
-        },
-        {
-        title: 'Delete',
-        dataIndex: 'delete',
-        render: () => <button >Delete</button>
-        },
-        {
-        title: 'Edit',
-        dataIndex: 'edit',
-        render: () => <Link to="/update-book"><h1>edit</h1></Link>
-        },
-      ]; */ 
-
-
+    
     const [isLoading, setLoading] = useState(true)
     const [isError, setError] = useState(false)
     const [datas, setDatas] = useState([])
