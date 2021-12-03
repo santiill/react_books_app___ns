@@ -3,26 +3,26 @@ import { useState } from "react"
 
 export const CreateBook = () => {
 
-    const [title, setAuthor] = useState("")
-    const [author, setTitle] = useState("")
+    const [userState, setUserState] = useState({
+        title: "",
+        author: ""
+      })
+      
+      const changeHandler = (e)=> {
+         const value = e.target.value;
+         setUserState({
+          ...userState,
+          [e.target.name]: value
+         });
+      }
 
-
-    const changeHandler = (e) => {
-        setTitle(e.target.value)
-        setAuthor(e.target.value)
-    }
-
-    const submitHandler = (e) => {
+    const submitHandler = () => {
         axios.post('http://localhost:4000/books/', {
-            title: title,
-            author: author
+            title: userState.title,
+            author: userState.author
           })
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+          .then(response => console.log(response))
+          .catch(error => console.log(error))
     }
 
     return (
@@ -30,11 +30,11 @@ export const CreateBook = () => {
             <form onSubmit={()=>submitHandler()}>
                 <div>
                     <label htmlFor="title">Title: </label>
-                    <input id="title" type="text" name="author" value={author} onChange={changeHandler}/>
+                    <input id="title" type="text" name="author" value={userState.author} onChange={changeHandler}/>
                 </div>
                 <div>
                     <label htmlFor="author">Author: </label>
-                    <input id="author" type="text" name="title" value={title} onChange={changeHandler}/>
+                    <input id="author" type="text" name="title" value={userState.title} onChange={changeHandler}/>
                 </div>
                 <button type="submit">Submit</button>
             </form>
