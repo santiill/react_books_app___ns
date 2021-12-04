@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export const CreateBook = () => {
 
@@ -15,7 +16,8 @@ export const CreateBook = () => {
           [e.target.name]: value
          });
       }
-
+    const navigate = useNavigate()
+    
     const submitHandler = () => {
         axios.post('http://localhost:4000/books/', {
             title: userState.title,
@@ -23,6 +25,7 @@ export const CreateBook = () => {
           })
           .then(response => console.log(response))
           .catch(error => console.log(error))
+        navigate("/");
     }
 
     return (
